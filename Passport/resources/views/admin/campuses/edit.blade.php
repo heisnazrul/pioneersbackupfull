@@ -1,0 +1,29 @@
+@extends('admin.layouts.layout')
+
+@section('content')
+    <div class="main-content py-10">
+        <div class="mx-auto max-w-4xl space-y-6 text-gray-800 dark:text-white">
+            <div class="flex items-center justify-between gap-4">
+                <div>
+                    <h1 class="text-2xl font-semibold">Edit Campus</h1>
+                    <p class="text-sm text-gray-500 dark:text-white/60">Update details for {{ $universityCampus->name }}.
+                    </p>
+                </div>
+                <a href="{{ route('admin.campuses.index') }}" class="ti-btn rounded-full ti-btn-ghost">Back to List</a>
+            </div>
+
+            <div class="box">
+                <div class="box-body">
+                    <form action="{{ route('admin.campuses.update', $universityCampus) }}" method="POST">
+                        @method('PUT')
+                        @include('admin.campuses._form', ['campus' => $universityCampus])
+
+                        <div class="mt-6 flex justify-end gap-2">
+                            <button type="submit" class="ti-btn rounded-full ti-btn-primary">Update Campus</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
