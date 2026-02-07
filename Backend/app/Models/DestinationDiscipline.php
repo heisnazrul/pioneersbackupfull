@@ -9,7 +9,7 @@ class DestinationDiscipline extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['destination_id', 'discipline'];
+    protected $fillable = ['destination_id', 'discipline', 'ar_discipline'];
 
     public function destination()
     {

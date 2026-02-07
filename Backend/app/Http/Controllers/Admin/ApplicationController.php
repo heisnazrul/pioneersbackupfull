@@ -14,7 +14,7 @@ class ApplicationController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Application::with('user', 'assignee');
+        $query = Application::with('assignee');
 
         if ($request->has('search')) {
             $search = $request->search;

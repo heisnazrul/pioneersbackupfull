@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('username')->nullable()->unique();
             $table->timestamp('email_verified_at')->nullable();
-            
+
             $table->enum('role', [
                 'admin',
                 'team',
@@ -32,12 +32,12 @@ return new class extends Migration
 
             $table->string('phone')->nullable();
             $table->string('avatar')->nullable();
-            
+
             $table->enum('status', ['active', 'inactive', 'banned'])->default('active')->index();
             $table->timestamp('last_login_at')->nullable()->index();
 
             $table->string('google_id')->nullable();
-            $table->string('password')->nullable(); // Nullable to support Social Login
+            $table->string('password')->nullable(); // nullable to support social login
 
             $table->rememberToken();
             $table->timestamps();

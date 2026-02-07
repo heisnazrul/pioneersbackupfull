@@ -9,7 +9,7 @@ class DestinationIntake extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['destination_id', 'month', 'event'];
+    protected $fillable = ['destination_id', 'month', 'ar_month', 'event', 'ar_event'];
 
     public function destination()
     {

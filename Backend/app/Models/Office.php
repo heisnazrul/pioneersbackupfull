@@ -9,15 +9,20 @@ class Office extends Model
     protected $fillable = [
         'slug',
         'city',
+        'ar_city',
         'country',
+        'ar_country',
         'address',
+        'ar_address',
         'phone',
         'email',
         'type',
         'image',
         'map_url',
         'description',
-        'hours'
+        'ar_description',
+        'hours',
+        'ar_hours',
     ];
 
     public function getRouteKeyName()

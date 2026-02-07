@@ -24,6 +24,14 @@
     </div>
 
     <div class="col-span-12 md:col-span-6">
+        <label for="ar_name" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Course Name (Arabic)</label>
+        <input type="text"
+            class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5"
+            id="ar_name" name="ar_name" value="{{ old('ar_name', $universityCourse->ar_name ?? '') }}"
+            placeholder="Arabic title">
+    </div>
+
+    <div class="col-span-12 md:col-span-6">
         <label for="level_id" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Study Level <span
                 class="text-red-500">*</span></label>
         <select name="level_id" id="level_id"
@@ -62,10 +70,24 @@
                 placeholder="Value (e.g. 3)" required>
             <select name="duration_unit"
                 class="form-control w-1/2 bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5">
-                <option value="year" {{ old('duration_unit', $universityCourse->duration_unit ?? 'year') == 'year' ? 'selected' : '' }}>Years</option>
-                <option value="month" {{ old('duration_unit', $universityCourse->duration_unit ?? 'year') == 'month' ? 'selected' : '' }}>Months</option>
-                <option value="week" {{ old('duration_unit', $universityCourse->duration_unit ?? 'year') == 'week' ? 'selected' : '' }}>Weeks</option>
-            </select>
+            <option value="year" {{ old('duration_unit', $universityCourse->duration_unit ?? 'year') == 'year' ? 'selected' : '' }}>Years</option>
+            <option value="month" {{ old('duration_unit', $universityCourse->duration_unit ?? 'year') == 'month' ? 'selected' : '' }}>Months</option>
+            <option value="week" {{ old('duration_unit', $universityCourse->duration_unit ?? 'year') == 'week' ? 'selected' : '' }}>Weeks</option>
+        </select>
+        </div>
+    </div>
+
+    <div class="col-span-12 md:col-span-6">
+        <label for="first_year_fee" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">First Year Fee</label>
+        <div class="flex gap-2">
+            <input type="number" step="0.01" name="first_year_fee"
+                class="form-control w-2/3 bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5"
+                value="{{ old('first_year_fee', $universityCourse->first_year_fee ?? '') }}"
+                placeholder="e.g. 15000">
+            <input type="text" name="currency"
+                class="form-control w-1/3 bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5"
+                value="{{ old('currency', $universityCourse->currency ?? 'USD') }}"
+                maxlength="3" placeholder="USD">
         </div>
     </div>
 
@@ -80,29 +102,11 @@
     </div>
 
     <div class="col-span-12 md:col-span-6">
-        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">First Year Fee</label>
-        <div class="flex gap-2">
-            <input type="number" step="0.01" name="first_year_fee"
-                class="form-control w-2/3 bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5"
-                value="{{ old('first_year_fee', $universityCourse->first_year_fee ?? '') }}"
-                placeholder="0.00">
-            <input type="text" name="currency"
-                class="form-control w-1/3 bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5"
-                value="{{ old('currency', $universityCourse->currency ?? 'USD') }}"
-                placeholder="USD" maxlength="3">
-        </div>
-    </div>
-
-    <div class="col-span-12">
-        <label for="degree_requirement" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Degree Requirement</label>
-        <textarea name="degree_requirement" id="degree_requirement" rows="3"
-            class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5">{{ old('degree_requirement', $universityCourse->degree_requirement ?? '') }}</textarea>
-    </div>
-
-    <div class="col-span-12">
-        <label for="language_requirement" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Language Requirement</label>
-        <textarea name="language_requirement" id="language_requirement" rows="3"
-            class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5">{{ old('language_requirement', $universityCourse->language_requirement ?? '') }}</textarea>
+        <label for="ar_awarding_body" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Awarding Body (Arabic)</label>
+        <input type="text"
+            class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5"
+            id="ar_awarding_body" name="ar_awarding_body"
+            value="{{ old('ar_awarding_body', $universityCourse->ar_awarding_body ?? '') }}">
     </div>
 
     <div class="col-span-12">
@@ -176,6 +180,24 @@
         <label for="overview" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Overview</label>
         <textarea name="overview" id="overview" rows="4"
             class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5">{{ old('overview', $universityCourse->overview ?? '') }}</textarea>
+    </div>
+
+    <div class="col-span-12">
+        <label for="degree_requirement" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Degree Requirement</label>
+        <textarea name="degree_requirement" id="degree_requirement" rows="3"
+            class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5">{{ old('degree_requirement', $universityCourse->degree_requirement ?? '') }}</textarea>
+    </div>
+
+    <div class="col-span-12">
+        <label for="language_requirement" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Language Requirement</label>
+        <textarea name="language_requirement" id="language_requirement" rows="3"
+            class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5">{{ old('language_requirement', $universityCourse->language_requirement ?? '') }}</textarea>
+    </div>
+
+    <div class="col-span-12">
+        <label for="ar_overview" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Overview (Arabic)</label>
+        <textarea name="ar_overview" id="ar_overview" rows="4"
+            class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5">{{ old('ar_overview', $universityCourse->ar_overview ?? '') }}</textarea>
     </div>
 
     <div class="col-span-12 md:col-span-6">

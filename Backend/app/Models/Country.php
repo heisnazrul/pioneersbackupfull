@@ -69,6 +69,11 @@ class Country extends Model
         return $this->hasMany(City::class);
     }
 
+    public function languageSchoolBranches()
+    {
+        return $this->hasManyThrough(LanguageSchoolBranch::class, City::class, 'country_id', 'city_id');
+    }
+
     public static function generateSlug(?string $slug, string $title, ?int $ignoreId = null): string
     {
         $base = trim($slug ?: Str::slug($title));

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Office;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class OfficeController extends Controller
@@ -25,16 +24,21 @@ class OfficeController extends Controller
     {
         $validated = $request->validate([
             'city' => 'required|string|max:255',
+            'ar_city' => 'nullable|string|max:255',
             'country' => 'required|string|max:255',
+            'ar_country' => 'nullable|string|max:255',
             'slug' => 'required|string|max:255|unique:offices,slug',
             'type' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'required|string|max:255',
             'address' => 'required|string',
+            'ar_address' => 'nullable|string',
             'image' => 'nullable|image|max:2048',
             'map_url' => 'nullable|url',
             'description' => 'nullable|string',
+            'ar_description' => 'nullable|string',
             'hours' => 'nullable|string|max:255',
+            'ar_hours' => 'nullable|string|max:255',
         ]);
 
         if ($request->hasFile('image')) {
@@ -55,16 +59,21 @@ class OfficeController extends Controller
     {
         $validated = $request->validate([
             'city' => 'required|string|max:255',
+            'ar_city' => 'nullable|string|max:255',
             'country' => 'required|string|max:255',
+            'ar_country' => 'nullable|string|max:255',
             'slug' => ['required', 'string', 'max:255', Rule::unique('offices', 'slug')->ignore($office->id)],
             'type' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'required|string|max:255',
             'address' => 'required|string',
+            'ar_address' => 'nullable|string',
             'image' => 'nullable|image|max:2048',
             'map_url' => 'nullable|url',
             'description' => 'nullable|string',
+            'ar_description' => 'nullable|string',
             'hours' => 'nullable|string|max:255',
+            'ar_hours' => 'nullable|string|max:255',
         ]);
 
         if ($request->hasFile('image')) {

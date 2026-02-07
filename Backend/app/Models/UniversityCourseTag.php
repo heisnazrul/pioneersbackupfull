@@ -12,6 +12,7 @@ class UniversityCourseTag extends Model
     protected $fillable = [
         'key',
         'name',
+        'ar_name',
         'is_active',
     ];
 

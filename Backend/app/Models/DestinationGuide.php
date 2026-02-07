@@ -12,6 +12,7 @@ class DestinationGuide extends Model
     protected $fillable = [
         'destination_id',
         'title',
+        'ar_title',
         'file_path',
         'year',
         'is_active',

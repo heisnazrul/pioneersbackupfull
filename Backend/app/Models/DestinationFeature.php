@@ -9,7 +9,7 @@ class DestinationFeature extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['destination_id', 'feature'];
+    protected $fillable = ['destination_id', 'feature', 'ar_feature'];
 
     public function destination()
     {

@@ -36,6 +36,7 @@ class DestinationGuideController extends Controller
         $request->validate([
             'destination_id' => 'required|exists:destinations,id',
             'title' => 'required|string|max:255',
+            'ar_title' => 'nullable|string|max:255',
             'file' => 'required|file|mimes:pdf|max:10240', // Max 10MB
             'year' => 'required|integer|min:2020|max:' . (date('Y') + 1),
             'is_active' => 'boolean',
@@ -46,6 +47,7 @@ class DestinationGuideController extends Controller
         DestinationGuide::create([
             'destination_id' => $request->destination_id,
             'title' => $request->title,
+            'ar_title' => $request->ar_title,
             'file_path' => $path,
             'year' => $request->year,
             'is_active' => $request->is_active ?? true,
@@ -71,6 +73,7 @@ class DestinationGuideController extends Controller
         $request->validate([
             'destination_id' => 'required|exists:destinations,id',
             'title' => 'required|string|max:255',
+            'ar_title' => 'nullable|string|max:255',
             'file' => 'nullable|file|mimes:pdf|max:10240',
             'year' => 'required|integer|min:2020|max:' . (date('Y') + 1),
             'is_active' => 'boolean',
@@ -79,6 +82,7 @@ class DestinationGuideController extends Controller
         $data = [
             'destination_id' => $request->destination_id,
             'title' => $request->title,
+            'ar_title' => $request->ar_title,
             'year' => $request->year,
             'is_active' => $request->has('is_active'),
         ];

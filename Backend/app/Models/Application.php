@@ -11,7 +11,6 @@ class Application extends Model
 
     protected $fillable = [
         'application_id',
-        'user_id',
         'first_name',
         'last_name',
         'email',
@@ -38,11 +37,6 @@ class Application extends Model
         'has_english_test' => 'boolean',
         'destination_interest' => 'array',
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 
     public function assignee()
     {

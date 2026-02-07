@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('blog_tags', function (Blueprint $table) {
+        Schema::create('blog_tags', function (Blueprint $table): void {
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('blog_blog_tag', function (Blueprint $table) {
+        Schema::create('blog_blog_tag', function (Blueprint $table): void {
             $table->id();
             $table->foreignId('blog_id')->constrained()->cascadeOnDelete();
             $table->foreignId('blog_tag_id')->constrained('blog_tags')->cascadeOnDelete();

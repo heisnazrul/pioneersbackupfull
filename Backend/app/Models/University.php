@@ -13,6 +13,7 @@ class University extends Model
 
     protected $fillable = [
         'name',
+        'ar_name',
         'slug',
         'logo',
         'cover_image',
@@ -22,11 +23,10 @@ class University extends Model
         'established_year',
         'website',
         'rank', // Global Rank
-        'description',
-        'student_count',
-        'employment_rate',
         'famous_for',
+        'ar_famous_for',
         'fees',
+        'ar_fees',
         'is_featured',
         'is_active',
     ];
@@ -36,8 +36,6 @@ class University extends Model
         'is_active' => 'boolean',
         'established_year' => 'integer',
         'rank' => 'integer',
-        'student_count' => 'integer',
-        'employment_rate' => 'decimal:2',
     ];
 
     protected static function booted(): void

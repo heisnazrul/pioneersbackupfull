@@ -149,6 +149,68 @@
                                 </li>
 
                                 <!-- Start::slide__category -->
+                                <li class="slide__category"><span class="category-name">Language Schools</span></li>
+                                <!-- End::slide__category -->
+
+                                <li class="slide has-sub">
+                                        <a href="javascript:void(0);" class="side-menu__item">
+                                                <i class="ri-school-line side-menu__icon"></i>
+                                                <span class="side-menu__label">Language Schools</span>
+                                                <i class="ri-arrow-down-s-line side-menu__angle"></i>
+                                        </a>
+                                        <ul class="slide-menu child1">
+                                                <li class="slide"><a href="{{ route('admin.language-schools.index') }}"
+                                                                class="side-menu__item">Schools</a></li>
+                                                <li class="slide"><a href="{{ route('admin.language-school-branches.index') }}"
+                                                                class="side-menu__item">Branches</a></li>
+                                                <li class="slide"><a href="{{ route('admin.language-school-courses.index') }}"
+                                                                class="side-menu__item">Courses</a></li>
+                                                <li class="slide"><a href="{{ route('admin.language-course-tags.index') }}"
+                                                                class="side-menu__item">Course Tags</a></li>
+                                                <li class="slide"><a href="{{ route('admin.language-course-types.index') }}"
+                                                                class="side-menu__item">Course Types</a></li>
+                                                <li class="slide"><a href="{{ route('admin.meal-plans.index') }}"
+                                                                class="side-menu__item">Meal Plans</a></li>
+                                                <li class="slide"><a href="{{ route('admin.bedroom-types.index') }}"
+                                                                class="side-menu__item">Bedroom Types</a></li>
+                                                <li class="slide"><a href="{{ route('admin.bathroom-types.index') }}"
+                                                                class="side-menu__item">Bathroom Types</a></li>
+                                                <li class="slide"><a href="{{ route('admin.gallery.index') }}"
+                                                                class="side-menu__item">Gallery</a></li>
+                                                <li class="slide"><a href="{{ route('admin.language-course-online-courses.index') }}"
+                                                                class="side-menu__item">Online Courses</a></li>
+                                                <li class="slide"><a href="{{ route('admin.language-course-summer-camps.index') }}"
+                                                                class="side-menu__item">Summer Camps</a></li>
+                                                <li class="slide"><a href="{{ route('admin.language-course-training-courses.index') }}"
+                                                                class="side-menu__item">Training Courses</a></li>
+                                        </ul>
+                                </li>
+
+                                <!-- Start::slide__category -->
+                                <li class="slide__category"><span class="category-name">Language Fees</span></li>
+                                <!-- End::slide__category -->
+                                <li class="slide has-sub">
+                                        <a href="javascript:void(0);" class="side-menu__item">
+                                                <i class="ri-currency-line side-menu__icon"></i>
+                                                <span class="side-menu__label">Language Fees</span>
+                                                <i class="ri-arrow-down-s-line side-menu__angle"></i>
+                                        </a>
+                                        <ul class="slide-menu child1">
+                                                <li class="slide"><a href="{{ route('admin.language-school-course-fees.index') }}" class="side-menu__item">Course Fees</a></li>
+                                                <li class="slide"><a href="{{ route('admin.language-school-course-material-fees.index') }}" class="side-menu__item">Material Fees</a></li>
+                                                <li class="slide"><a href="{{ route('admin.language-school-branch-registration-fees.index') }}" class="side-menu__item">Registration Fees</a></li>
+                                                <li class="slide"><a href="{{ route('admin.language-school-branch-high-season-fees.index') }}" class="side-menu__item">High Season Fees</a></li>
+                                                <li class="slide"><a href="{{ route('admin.language-school-accommodations.index') }}" class="side-menu__item">Accommodations</a></li>
+                                                <li class="slide"><a href="{{ route('admin.language-school-supplements.index') }}" class="side-menu__item">Supplements</a></li>
+                                                <li class="slide"><a href="{{ route('admin.language-school-pickups.index') }}" class="side-menu__item">Pickups</a></li>
+                                                <li class="slide"><a href="{{ route('admin.language-school-insurance-fees.index') }}" class="side-menu__item">Insurance Fees</a></li>
+                                                <li class="slide"><a href="{{ route('admin.language-school-discounts.index') }}" class="side-menu__item">Discounts</a></li>
+                                                <li class="slide"><a href="{{ route('admin.language-school-coupons.index') }}" class="side-menu__item">Coupons</a></li>
+                                                <li class="slide"><a href="{{ route('admin.language-school-pioneers-discounts.index') }}" class="side-menu__item">Pioneers Discounts</a></li>
+                                        </ul>
+                                </li>
+
+                                <!-- Start::slide__category -->
                                 <li class="slide__category"><span class="category-name">Content</span></li>
                                 <!-- End::slide__category -->
 
@@ -179,6 +241,8 @@
                                                 <li class="slide"><a
                                                                 href="{{ route('admin.accommodation-rooms.index') }}"
                                                                 class="side-menu__item">Accommodation Rooms</a></li>
+                                                <li class="slide"><a href="{{ route('admin.accreditations.index') }}"
+                                                                class="side-menu__item">Accreditations</a></li>
                                                 <li class="slide"><a href="{{ route('admin.cms-pages.index') }}"
                                                                 class="side-menu__item">CMS Pages</a></li>
                                         </ul>

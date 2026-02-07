@@ -12,6 +12,7 @@ class IntakeTerm extends Model
     protected $fillable = [
         'key',
         'name',
+        'ar_name',
         'month_num',
         'sort_order',
         'is_active',

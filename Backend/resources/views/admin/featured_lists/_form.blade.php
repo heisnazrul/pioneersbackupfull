@@ -9,6 +9,14 @@
     </div>
 
     <div class="col-span-12 md:col-span-6">
+        <label for="ar_name" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Name (Arabic)</label>
+        <input type="text"
+            class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5"
+            id="ar_name" name="ar_name" value="{{ old('ar_name', $featuredList->ar_name ?? '') }}"
+            placeholder="مثال: أفضل الجامعات البريطانية">
+    </div>
+
+    <div class="col-span-12 md:col-span-6">
         <label for="key" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Key <span
                 class="text-red-500">*</span></label>
         <input type="text"

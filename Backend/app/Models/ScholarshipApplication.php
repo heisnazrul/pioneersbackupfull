@@ -29,17 +29,11 @@ class ScholarshipApplication extends Model
         'notes',
     ];
 
-    /**
-     * Get the user that owns the application.
-     */
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * Get the user assigned to this application.
-     */
     public function assignee()
     {
         return $this->belongsTo(User::class, 'assignee_id');

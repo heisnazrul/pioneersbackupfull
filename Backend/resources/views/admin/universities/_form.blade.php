@@ -2,6 +2,7 @@
     $isEdit = isset($university) && $university->exists;
     $defaults = [
         'name' => old('name', $university->name ?? ''),
+        'ar_name' => old('ar_name', $university->ar_name ?? ''),
         'slug' => old('slug', $university->slug ?? ''),
         'country_id' => old('country_id', $university->country_id ?? ''),
         'city_id' => old('city_id', $university->city_id ?? ''),
@@ -9,11 +10,10 @@
         'established_year' => old('established_year', $university->established_year ?? ''),
         'website' => old('website', $university->website ?? ''),
         'rank' => old('rank', $university->rank ?? ''),
-        'description' => old('description', $university->description ?? ''),
-        'student_count' => old('student_count', $university->student_count ?? ''),
-        'employment_rate' => old('employment_rate', $university->employment_rate ?? ''),
         'famous_for' => old('famous_for', $university->famous_for ?? ''),
+        'ar_famous_for' => old('ar_famous_for', $university->ar_famous_for ?? ''),
         'fees' => old('fees', $university->fees ?? ''),
+        'ar_fees' => old('ar_fees', $university->ar_fees ?? ''),
         'is_active' => old('is_active', ($university->is_active ?? true) ? '1' : '0'),
         'is_featured' => old('is_featured', ($university->is_featured ?? false) ? '1' : '0'),
     ];
@@ -30,6 +30,12 @@
                 class="text-red-500">*</span></label>
         <input type="text" id="name" name="name" value="{{ $defaults['name'] }}"
             class="mt-1 block w-full border rounded-md px-3 py-2" required>
+    </div>
+
+    <div>
+        <label class="block text-sm font-medium text-gray-700">University Name (Arabic)</label>
+        <input type="text" name="ar_name" value="{{ $defaults['ar_name'] }}"
+            class="mt-1 block w-full border rounded-md px-3 py-2">
     </div>
 
     <div>
@@ -100,28 +106,21 @@
     </div>
 
     <div class="md:col-span-2">
+        <label class="block text-sm font-medium text-gray-700">Famous For (Arabic)</label>
+        <textarea name="ar_famous_for" rows="2" class="mt-1 block w-full border rounded-md px-3 py-2"
+            placeholder="...">{{ $defaults['ar_famous_for'] }}</textarea>
+    </div>
+
+    <div class="md:col-span-2">
         <label class="block text-sm font-medium text-gray-700">Fees Structure / Info</label>
         <textarea name="fees" rows="2" class="mt-1 block w-full border rounded-md px-3 py-2"
             placeholder="e.g. $10,000 - $20,000 avg yearly...">{{ $defaults['fees'] }}</textarea>
     </div>
 
     <div class="md:col-span-2">
-        <label class="block text-sm font-medium text-gray-700">Description</label>
-        <textarea name="description" rows="4" class="mt-1 block w-full border rounded-md px-3 py-2"
-            placeholder="Full university description...">{{ old('description', $university->description ?? '') }}</textarea>
-    </div>
-
-    <div>
-        <label class="block text-sm font-medium text-gray-700">Student Count</label>
-        <input type="number" name="student_count" value="{{ old('student_count', $university->student_count ?? '') }}"
-            class="mt-1 block w-full border rounded-md px-3 py-2" min="0" placeholder="e.g. 25000">
-    </div>
-
-    <div>
-        <label class="block text-sm font-medium text-gray-700">Employment Rate (%)</label>
-        <input type="number" step="0.01" name="employment_rate"
-            value="{{ old('employment_rate', $university->employment_rate ?? '') }}"
-            class="mt-1 block w-full border rounded-md px-3 py-2" min="0" max="100" placeholder="e.g. 92.5">
+        <label class="block text-sm font-medium text-gray-700">Fees (Arabic)</label>
+        <textarea name="ar_fees" rows="2" class="mt-1 block w-full border rounded-md px-3 py-2"
+            placeholder="...">{{ $defaults['ar_fees'] }}</textarea>
     </div>
 
     <!-- Images -->

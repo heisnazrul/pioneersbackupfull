@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Scholarship;
 
 class ScholarshipController extends Controller
 {
-    private function getImageUrl(?string $path)
+    private function getImageUrl(?string $path): ?string
     {
         if (!$path) {
             return null;
@@ -21,14 +20,13 @@ class ScholarshipController extends Controller
         return asset('storage/' . $path);
     }
 
-    public function show($slug)
+    public function show(string $slug)
     {
         $scholarship = Scholarship::where('slug', $slug)
             ->where('is_active', true)
             ->with(['university'])
             ->firstOrFail();
 
-        // Format Amount (Reused logic from HomeController)
         $amountDisplay = '';
         if ($scholarship->amount_type === 'fixed') {
             $amountDisplay = $scholarship->currency . number_format((float) $scholarship->amount_value);
@@ -43,26 +41,30 @@ class ScholarshipController extends Controller
             }
         }
 
-        $data = [
+        return response()->json([
             'id' => $scholarship->id,
             'name' => $scholarship->name,
+            'ar_name' => $scholarship->ar_name,
             'slug' => $scholarship->slug,
             'provider_name' => $scholarship->provider_name,
+            'ar_provider_name' => $scholarship->ar_provider_name,
             'summary' => $scholarship->summary,
+            'ar_summary' => $scholarship->ar_summary,
             'description' => $scholarship->description,
+            'ar_description' => $scholarship->ar_description,
             'amount_display' => $amountDisplay,
             'deadline' => $scholarship->deadline_date ? $scholarship->deadline_date->format('d F Y') : 'Rolling',
             'eligible_nationalities' => $scholarship->eligible_nationalities,
             'eligibility_text' => $scholarship->eligibility_text,
+            'ar_eligibility_text' => $scholarship->ar_eligibility_text,
             'apply_link' => $scholarship->apply_link,
             'tags' => $scholarship->tags,
             'university' => $scholarship->university ? [
                 'name' => $scholarship->university->name,
+                'ar_name' => $scholarship->university->ar_name,
                 'slug' => $scholarship->university->slug,
                 'logo' => $this->getImageUrl($scholarship->university->logo),
             ] : null,
-        ];
-
-        return response()->json($data);
+        ]);
     }
 }

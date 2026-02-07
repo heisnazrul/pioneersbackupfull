@@ -18,6 +18,10 @@
                         <p class="{{ $errorClass }}">{{ $message }}</p>
                     @enderror
                 </div>
+                <div>
+                    <label for="ar_title" class="{{ $labelClass }}">Title (Arabic)</label>
+                    <input type="text" name="ar_title" id="ar_title" class="{{ $inputClass }}" value="{{ old('ar_title', $accommodationRoom->ar_title ?? '') }}">
+                </div>
 
                 <div>
                     <label for="slug" class="{{ $labelClass }}">Slug <span class="text-red-500">*</span></label>
@@ -42,6 +46,10 @@
                     @error('description')
                         <p class="{{ $errorClass }}">{{ $message }}</p>
                     @enderror
+                </div>
+                <div>
+                    <label for="ar_description" class="{{ $labelClass }}">Short Description (Arabic)</label>
+                    <textarea name="ar_description" id="ar_description" rows="3" class="{{ $inputClass }}">{{ old('ar_description', $accommodationRoom->ar_description ?? '') }}</textarea>
                 </div>
             </div>
         </div>
@@ -76,6 +84,10 @@
                      <p class="{{ $errorClass }}">{{ $message }}</p>
                  @enderror
              </div>
+            <div class="mt-4">
+                <label for="ar_details" class="{{ $labelClass }}">Full Details (Arabic)</label>
+                <textarea name="ar_details" id="ar_details" rows="15" class="{{ $inputClass }}">{{ old('ar_details', $accommodationRoom->ar_details ?? '') }}</textarea>
+            </div>
         </div>
     </div>
 

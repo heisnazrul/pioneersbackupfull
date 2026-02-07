@@ -39,6 +39,7 @@ class CampusController extends Controller
         $validated = $request->validate([
             'university_id' => 'required|exists:universities,id',
             'name' => 'required|string|max:150',
+            'ar_name' => 'nullable|string|max:200',
             'is_online' => 'boolean',
             'city_id' => [
                 'nullable',
@@ -46,6 +47,7 @@ class CampusController extends Controller
                 Rule::requiredIf(fn() => !$request->boolean('is_online'))
             ],
             'address' => 'nullable|string',
+            'ar_address' => 'nullable|string',
             'lat' => 'nullable|numeric|between:-90,90',
             'lng' => 'nullable|numeric|between:-180,180',
             'is_active' => 'boolean',
@@ -87,6 +89,7 @@ class CampusController extends Controller
         $validated = $request->validate([
             'university_id' => 'required|exists:universities,id',
             'name' => 'required|string|max:150',
+            'ar_name' => 'nullable|string|max:200',
             'is_online' => 'boolean',
             'city_id' => [
                 'nullable',
@@ -94,6 +97,7 @@ class CampusController extends Controller
                 Rule::requiredIf(fn() => !$request->boolean('is_online'))
             ],
             'address' => 'nullable|string',
+            'ar_address' => 'nullable|string',
             'lat' => 'nullable|numeric|between:-90,90',
             'lng' => 'nullable|numeric|between:-180,180',
             'is_active' => 'boolean',

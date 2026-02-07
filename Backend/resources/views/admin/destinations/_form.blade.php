@@ -28,6 +28,16 @@
                         </div>
                     </div>
 
+                    <!-- Destination Name (Arabic) -->
+                    <div class="col-span-12 md:col-span-6">
+                        <label for="ar_name"
+                            class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Destination Name (Arabic)</label>
+                        <input type="text"
+                            class="form-control pl-3 bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5"
+                            id="ar_name" name="ar_name" value="{{ old('ar_name', $destination->ar_name ?? '') }}"
+                            placeholder="اسم الوجهة">
+                    </div>
+
                     <!-- Slug -->
                     <div class="col-span-12 md:col-span-6">
                         <label for="slug" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Slug
@@ -56,6 +66,14 @@
                                 id="region" name="region" value="{{ old('region', $destination->region ?? '') }}"
                                 placeholder="e.g. Western Europe">
                         </div>
+                    </div>
+
+                    <div class="col-span-12 md:col-span-6">
+                        <label for="ar_region"
+                            class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Region (Arabic)</label>
+                        <input type="text"
+                            class="form-control pl-3 bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5"
+                            id="ar_region" name="ar_region" value="{{ old('ar_region', $destination->ar_region ?? '') }}">
                     </div>
 
                     <!-- Linked Country -->
@@ -93,6 +111,16 @@
                         </div>
                     </div>
 
+                    <div class="col-span-12">
+                        <label for="ar_short_pitch"
+                            class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Short Pitch (Arabic)</label>
+                        <div class="relative w-full">
+                            <textarea
+                                class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm"
+                                id="ar_short_pitch" name="ar_short_pitch" rows="2">{{ old('ar_short_pitch', $destination->ar_short_pitch ?? '') }}</textarea>
+                        </div>
+                    </div>
+
                     <!-- Full Description -->
                     <div class="col-span-12">
                         <label for="description"
@@ -104,6 +132,59 @@
                                 id="description" name="description" rows="5"
                                 placeholder="Detailed overview of the destination...">{{ old('description', $destination->description ?? '') }}</textarea>
                         </div>
+                    </div>
+
+                    <div class="col-span-12">
+                        <label for="ar_description"
+                            class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Full Description (Arabic)</label>
+                        <div class="relative w-full">
+                            <textarea
+                                class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm"
+                                id="ar_description" name="ar_description" rows="5">{{ old('ar_description', $destination->ar_description ?? '') }}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Arabic Quick Stats -->
+        <div class="box shadow-sm border border-gray-200 dark:border-white/10 rounded-lg overflow-hidden">
+            <div class="box-header !border-b !border-gray-100 dark:!border-white/10 !py-4 !px-5 bg-gray-50/50 dark:bg-white/5">
+                <div class="box-title text-base font-bold text-gray-800 dark:text-white flex items-center gap-2">
+                    <i class="ri-translate-2 text-primary"></i> Arabic Stats
+                </div>
+            </div>
+            <div class="box-body !p-6">
+                <div class="grid grid-cols-12 gap-6">
+                    <div class="col-span-12 md:col-span-6">
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Tuition Range (Arabic)</label>
+                        <input type="text" name="ar_tuition_range" class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 rounded-md text-sm py-2.5"
+                            value="{{ old('ar_tuition_range', $destination->ar_tuition_range ?? '') }}">
+                    </div>
+                    <div class="col-span-12 md:col-span-6">
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Visa Timeline (Arabic)</label>
+                        <input type="text" name="ar_visa_timeline" class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 rounded-md text-sm py-2.5"
+                            value="{{ old('ar_visa_timeline', $destination->ar_visa_timeline ?? '') }}">
+                    </div>
+                    <div class="col-span-12 md:col-span-6">
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Work Rights (Arabic)</label>
+                        <input type="text" name="ar_work_rights" class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 rounded-md text-sm py-2.5"
+                            value="{{ old('ar_work_rights', $destination->ar_work_rights ?? '') }}">
+                    </div>
+                    <div class="col-span-12 md:col-span-6">
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Scholarships Summary (Arabic)</label>
+                        <input type="text" name="ar_scholarships_summary" class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 rounded-md text-sm py-2.5"
+                            value="{{ old('ar_scholarships_summary', $destination->ar_scholarships_summary ?? '') }}">
+                    </div>
+                    <div class="col-span-12 md:col-span-6">
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Entry Requirement - GPA (Arabic)</label>
+                        <textarea name="ar_entry_req_gpa" rows="2"
+                            class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 rounded-md text-sm">{{ old('ar_entry_req_gpa', $destination->ar_entry_req_gpa ?? '') }}</textarea>
+                    </div>
+                    <div class="col-span-12 md:col-span-6">
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Entry Requirement - Language (Arabic)</label>
+                        <textarea name="ar_entry_req_language" rows="2"
+                            class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 rounded-md text-sm">{{ old('ar_entry_req_language', $destination->ar_entry_req_language ?? '') }}</textarea>
                     </div>
                 </div>
             </div>

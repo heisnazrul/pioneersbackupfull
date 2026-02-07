@@ -56,6 +56,11 @@
                                     onkeyup="generateSlug(this.value)" placeholder="e.g. London"
                                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm px-3 py-2">
                             </div>
+                            <div>
+                                <label for="ar_city" class="block text-sm font-medium text-gray-700 dark:text-gray-300">City (Arabic)</label>
+                                <input type="text" name="ar_city" id="ar_city" value="{{ old('ar_city', $office->ar_city) }}"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm px-3 py-2">
+                            </div>
 
                             <!-- Slug -->
                             <div>
@@ -74,6 +79,11 @@
                                 <input type="text" name="country" id="country"
                                     value="{{ old('country', $office->country) }}" required
                                     placeholder="e.g. United Kingdom"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm px-3 py-2">
+                            </div>
+                            <div>
+                                <label for="ar_country" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Country (Arabic)</label>
+                                <input type="text" name="ar_country" id="ar_country" value="{{ old('ar_country', $office->ar_country) }}"
                                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm px-3 py-2">
                             </div>
 
@@ -96,6 +106,11 @@
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Description</label>
                                 <textarea name="description" id="description" rows="3" placeholder="Brief description..."
                                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm px-3 py-2">{{ old('description', $office->description) }}</textarea>
+                            </div>
+                            <div class="md:col-span-2">
+                                <label for="ar_description" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Description (Arabic)</label>
+                                <textarea name="ar_description" id="ar_description" rows="3" placeholder="وصف المكتب"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm px-3 py-2">{{ old('ar_description', $office->ar_description) }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -142,6 +157,11 @@
                                     placeholder="Street address, City, Zip Code"
                                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm px-3 py-2">{{ old('address', $office->address) }}</textarea>
                             </div>
+                            <div class="md:col-span-2">
+                                <label for="ar_address" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Full Address (Arabic)</label>
+                                <textarea name="ar_address" id="ar_address" rows="2"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm px-3 py-2">{{ old('ar_address', $office->ar_address) }}</textarea>
+                            </div>
 
                             <!-- Hours -->
                             <div>
@@ -149,6 +169,12 @@
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300">Opening Hours</label>
                                 <input type="text" name="hours" id="hours" value="{{ old('hours', $office->hours) }}"
                                     placeholder="Mon-Fri 9AM - 6PM"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm px-3 py-2">
+                            </div>
+                            <div>
+                                <label for="ar_hours"
+                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300">Opening Hours (Arabic)</label>
+                                <input type="text" name="ar_hours" id="ar_hours" value="{{ old('ar_hours', $office->ar_hours) }}"
                                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white sm:text-sm px-3 py-2">
                             </div>
 

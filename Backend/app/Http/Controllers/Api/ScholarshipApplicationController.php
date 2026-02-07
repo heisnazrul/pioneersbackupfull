@@ -10,9 +10,6 @@ use Illuminate\Support\Str;
 
 class ScholarshipApplicationController extends Controller
 {
-    /**
-     * Store a newly created scholarship application.
-     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -22,7 +19,6 @@ class ScholarshipApplicationController extends Controller
             'phone' => 'required|string|max:255',
             'scholarship_slug' => 'required|string',
             'scholarship_title' => 'nullable|string',
-            // Add other validations as needed
         ]);
 
         if ($validator->fails()) {
@@ -30,11 +26,8 @@ class ScholarshipApplicationController extends Controller
         }
 
         $data = $request->all();
-
-        // Generate a unique application ID
         $data['application_id'] = strtoupper(Str::random(8));
 
-        // If user is authenticated, link it
         if ($request->user('api')) {
             $data['user_id'] = $request->user('api')->id;
         }
@@ -43,13 +36,10 @@ class ScholarshipApplicationController extends Controller
 
         return response()->json([
             'message' => 'Application submitted successfully',
-            'application' => $application
+            'application' => $application,
         ], 201);
     }
 
-    /**
-     * Display a listing of the resource for the authenticated user.
-     */
     public function index(Request $request)
     {
         $user = $request->user();

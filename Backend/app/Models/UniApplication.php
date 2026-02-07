@@ -12,7 +12,7 @@ class UniApplication extends Model
         'email',
         'phone',
         'intake',
-        'status'
+        'status',
     ];
 
     public function course()

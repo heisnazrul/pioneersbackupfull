@@ -113,6 +113,7 @@ class UniversityController extends Controller
 
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'ar_name' => ['nullable', 'string', 'max:255'],
             'slug' => ['nullable', 'string', 'max:255', Rule::unique('universities', 'slug')->ignore($ignoreId)],
             'country_id' => ['required', Rule::exists('countries', 'id')],
             'city_id' => ['required', Rule::exists('cities', 'id')],
@@ -120,11 +121,10 @@ class UniversityController extends Controller
             'website' => ['nullable', 'url', 'max:255'],
             'established_year' => ['nullable', 'integer', 'min:1000', 'max:' . date('Y')],
             'rank' => ['nullable', 'integer', 'min:1'],
-            'description' => ['nullable', 'string'],
-            'student_count' => ['nullable', 'integer', 'min:0'],
-            'employment_rate' => ['nullable', 'numeric', 'min:0', 'max:100'],
             'famous_for' => ['nullable', 'string'],
+            'ar_famous_for' => ['nullable', 'string'],
             'fees' => ['nullable', 'string'],
+            'ar_fees' => ['nullable', 'string'],
             'logo' => ['nullable', 'image', 'max:2048'],
             'cover_image' => ['nullable', 'image', 'max:4096'],
             'is_active' => ['nullable', 'boolean'],

@@ -74,17 +74,27 @@ class DestinationController extends Controller
         return $request->validate([
             'country_id' => 'nullable|exists:countries,id',
             'name' => 'required|string|max:255',
+            'ar_name' => 'nullable|string|max:255',
             'slug' => 'nullable|string|max:255|unique:destinations,slug,' . $id,
             'region' => 'nullable|string|max:255',
+            'ar_region' => 'nullable|string|max:255',
             'description' => 'nullable|string',
+            'ar_description' => 'nullable|string',
             'image_url' => 'nullable|image|max:2048', // 2MB Max
             'short_pitch' => 'nullable|string',
+            'ar_short_pitch' => 'nullable|string',
             'tuition_range' => 'nullable|string|max:255',
+            'ar_tuition_range' => 'nullable|string|max:255',
             'visa_timeline' => 'nullable|string|max:255',
+            'ar_visa_timeline' => 'nullable|string|max:255',
             'work_rights' => 'nullable|string|max:255',
+            'ar_work_rights' => 'nullable|string|max:255',
             'scholarships_summary' => 'nullable|string|max:255',
+            'ar_scholarships_summary' => 'nullable|string|max:255',
             'entry_req_gpa' => 'nullable|string',
+            'ar_entry_req_gpa' => 'nullable|string',
             'entry_req_language' => 'nullable|string',
+            'ar_entry_req_language' => 'nullable|string',
             'is_active' => 'boolean',
         ]);
     }

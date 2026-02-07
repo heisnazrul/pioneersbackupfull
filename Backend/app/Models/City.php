@@ -46,13 +46,10 @@ class City extends Model
         return $this->belongsTo(Country::class);
     }
 
-    /*
-    // Future relation
-    public function branches()
+    public function languageSchoolBranches()
     {
-        return $this->hasMany(SchoolBranch::class, 'city_id');
+        return $this->hasMany(LanguageSchoolBranch::class, 'city_id');
     }
-    */
 
     public function universities()
     {

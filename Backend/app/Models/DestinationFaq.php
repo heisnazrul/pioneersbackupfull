@@ -9,7 +9,7 @@ class DestinationFaq extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['destination_id', 'question', 'answer'];
+    protected $fillable = ['destination_id', 'question', 'ar_question', 'answer', 'ar_answer'];
 
     public function destination()
     {

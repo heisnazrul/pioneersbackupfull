@@ -84,6 +84,15 @@
                                         </div>
                                     </div>
 
+                                    <div class="col-span-12">
+                                        <label for="ar_title"
+                                            class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Guide Title (Arabic)</label>
+                                        <input type="text"
+                                            class="form-control pl-3 bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5"
+                                            id="ar_title" name="ar_title" value="{{ old('ar_title') }}"
+                                            placeholder="عنوان الدليل">
+                                    </div>
+
                                     <div class="col-span-12 md:col-span-6">
                                         <label for="year"
                                             class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Year

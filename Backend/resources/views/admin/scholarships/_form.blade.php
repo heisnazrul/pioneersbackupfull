@@ -23,6 +23,15 @@
             value="{{ old('provider_name', $scholarship->provider_name ?? '') }}" placeholder="e.g. British Council">
     </div>
 
+    <div class="col-span-12 md:col-span-6 {{ old('university_id', $scholarship->university_id ?? '') ? 'hidden' : '' }}"
+        id="ar_provider_field">
+        <label for="ar_provider_name" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Provider Name (Arabic)</label>
+        <input type="text"
+            class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5"
+            id="ar_provider_name" name="ar_provider_name"
+            value="{{ old('ar_provider_name', $scholarship->ar_provider_name ?? '') }}" placeholder="مثال: المجلس الثقافي البريطاني">
+    </div>
+
     <div class="col-span-12 md:col-span-6">
         <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Scholarship Name <span
                 class="text-red-500">*</span></label>
@@ -30,6 +39,14 @@
             class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5"
             id="name" name="name" value="{{ old('name', $scholarship->name ?? '') }}"
             placeholder="e.g. Excellence Scholarship" required>
+    </div>
+
+    <div class="col-span-12 md:col-span-6">
+        <label for="ar_name" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Scholarship Name (Arabic)</label>
+        <input type="text"
+            class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5"
+            id="ar_name" name="ar_name" value="{{ old('ar_name', $scholarship->ar_name ?? '') }}"
+            placeholder="اسم المنحة">
     </div>
 
     <div class="col-span-12 md:col-span-6">
@@ -76,6 +93,14 @@
     </div>
 
     <div class="col-span-12">
+        <label for="ar_summary" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Summary (Arabic)</label>
+        <input type="text"
+            class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5"
+            id="ar_summary" name="ar_summary" value="{{ old('ar_summary', $scholarship->ar_summary ?? '') }}"
+            placeholder="وصف مختصر">
+    </div>
+
+    <div class="col-span-12">
         <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Full
             Description</label>
         <textarea name="description" id="description" rows="4"
@@ -83,10 +108,23 @@
     </div>
 
     <div class="col-span-12">
+        <label for="ar_description" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Full Description (Arabic)</label>
+        <textarea name="ar_description" id="ar_description" rows="4"
+            class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5">{{ old('ar_description', $scholarship->ar_description ?? '') }}</textarea>
+    </div>
+
+    <div class="col-span-12">
         <label for="eligibility_text"
             class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Eligibility Criteria</label>
         <textarea name="eligibility_text" id="eligibility_text" rows="4"
             class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5">{{ old('eligibility_text', $scholarship->eligibility_text ?? '') }}</textarea>
+    </div>
+
+    <div class="col-span-12">
+        <label for="ar_eligibility_text"
+            class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Eligibility Criteria (Arabic)</label>
+        <textarea name="ar_eligibility_text" id="ar_eligibility_text" rows="4"
+            class="form-control w-full bg-gray-50 border-gray-200 focus:bg-white hover:border-primary focus:border-primary focus:ring focus:ring-primary/20 transition-all rounded-md text-sm py-2.5">{{ old('ar_eligibility_text', $scholarship->ar_eligibility_text ?? '') }}</textarea>
     </div>
 
     <div class="col-span-12 md:col-span-6">
@@ -113,12 +151,15 @@
     document.addEventListener('DOMContentLoaded', function () {
         const uniSelect = document.getElementById('university_id');
         const providerField = document.getElementById('provider_field');
+        const arProviderField = document.getElementById('ar_provider_field');
 
         uniSelect.addEventListener('change', function () {
             if (this.value) {
                 providerField.classList.add('hidden');
+                arProviderField.classList.add('hidden');
             } else {
                 providerField.classList.remove('hidden');
+                arProviderField.classList.remove('hidden');
             }
         });
 

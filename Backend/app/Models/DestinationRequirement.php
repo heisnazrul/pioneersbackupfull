@@ -9,7 +9,7 @@ class DestinationRequirement extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['destination_id', 'requirement'];
+    protected $fillable = ['destination_id', 'requirement', 'ar_requirement'];
 
     public function destination()
     {

@@ -9,7 +9,7 @@ class DestinationStat extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['destination_id', 'label', 'value'];
+    protected $fillable = ['destination_id', 'label', 'ar_label', 'value', 'ar_value'];
 
     public function destination()
     {

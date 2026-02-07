@@ -17,19 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
-            CountrySeeder::class,
-            CitySeeder::class,
-            UniversitySeeder::class,
-            DestinationSeeder::class,
-            CourseAttributesSeeder::class,
-            FaqSeeder::class,
-            BlogSeeder::class,
-            ScholarshipSeeder::class,
-            ReviewSeeder::class,
-            CertificationSeeder::class,
-            FeaturedListSeeder::class,
-            UniversityCampusSeeder::class,
-            UniversityCourseSeeder::class,
+            SettingSeeder::class,
         ]);
     }
 }

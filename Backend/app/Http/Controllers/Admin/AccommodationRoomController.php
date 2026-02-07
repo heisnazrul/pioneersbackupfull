@@ -3,42 +3,36 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\AccommodationRoom;
+use App\Models\UniversityAccommodationRoom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class AccommodationRoomController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $rooms = AccommodationRoom::all();
+        $rooms = UniversityAccommodationRoom::all();
         return view('admin.accommodation_rooms.index', compact('rooms'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('admin.accommodation_rooms.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:accommodation_rooms',
+            'ar_title' => 'nullable|string|max:255',
+            'slug' => 'required|string|max:255|unique:university_accommodation_rooms',
             'description' => 'nullable|string',
+            'ar_description' => 'nullable|string',
             'price' => 'nullable|string',
             'features' => 'nullable|array',
             'image' => 'nullable|image|max:2048',
             'details' => 'nullable|string',
+            'ar_details' => 'nullable|string',
         ]);
 
         if ($request->hasFile('image')) {
@@ -46,36 +40,32 @@ class AccommodationRoomController extends Controller
             $validated['image'] = '/storage/' . $path;
         }
 
-        AccommodationRoom::create($validated);
+        UniversityAccommodationRoom::create($validated);
 
         return redirect()->route('admin.accommodation-rooms.index')->with('success', 'Room created successfully.');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(AccommodationRoom $accommodationRoom)
+    public function edit(UniversityAccommodationRoom $accommodationRoom)
     {
         return view('admin.accommodation_rooms.edit', compact('accommodationRoom'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, AccommodationRoom $accommodationRoom)
+    public function update(Request $request, UniversityAccommodationRoom $accommodationRoom)
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:accommodation_rooms,slug,' . $accommodationRoom->id,
+            'ar_title' => 'nullable|string|max:255',
+            'slug' => 'required|string|max:255|unique:university_accommodation_rooms,slug,' . $accommodationRoom->id,
             'description' => 'nullable|string',
+            'ar_description' => 'nullable|string',
             'price' => 'nullable|string',
             'features' => 'nullable|array',
             'image' => 'nullable|image|max:2048',
             'details' => 'nullable|string',
+            'ar_details' => 'nullable|string',
         ]);
 
         if ($request->hasFile('image')) {
-            // Delete old image
             if ($accommodationRoom->image) {
                 Storage::disk('public')->delete(str_replace('/storage/', '', $accommodationRoom->image));
             }
@@ -88,10 +78,7 @@ class AccommodationRoomController extends Controller
         return redirect()->route('admin.accommodation-rooms.index')->with('success', 'Room updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(AccommodationRoom $accommodationRoom)
+    public function destroy(UniversityAccommodationRoom $accommodationRoom)
     {
         if ($accommodationRoom->image) {
             Storage::disk('public')->delete(str_replace('/storage/', '', $accommodationRoom->image));
