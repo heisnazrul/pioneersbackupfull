@@ -24,7 +24,7 @@
                                 <div class="space-y-2">
                                     <label class="ti-form-label mb-0 font-bold">Application Status</label>
                                     <select name="status" class="ti-form-select rounded-sm">
-                                        @foreach(['pending', 'submitted', 'reviewing', 'contacted', 'accepted', 'rejected', 'invalid'] as $status)
+                                        @foreach(['draft','pending','submitted','reviewing','contacted','accepted','rejected','invalid'] as $status)
                                             <option value="{{ $status }}" {{ $application->status == $status ? 'selected' : '' }}>
                                                 {{ ucfirst($status) }}
                                             </option>

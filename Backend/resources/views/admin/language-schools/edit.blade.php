@@ -76,6 +76,12 @@
             <input type="number" step="0.1" min="0" max="5" name="rating" id="rating" value="{{ old('rating', $school->rating) }}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
         </div>
 
+        <div class="flex items-center gap-2 mt-2">
+            <input type="hidden" name="is_preferred" value="0">
+            <input type="checkbox" name="is_preferred" value="1" id="is_preferred" class="rounded border-gray-300 text-primary focus:ring-primary" {{ old('is_preferred', $school->is_preferred) ? 'checked' : '' }}>
+            <label for="is_preferred" class="text-sm text-gray-700">Preferred School</label>
+        </div>
+
         <div class="flex space-x-2 mt-4">
             <button type="submit" class="ti-btn rounded-full ti-btn-outline ti-btn-outline-success">
                 Update School

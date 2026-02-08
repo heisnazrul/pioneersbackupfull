@@ -48,6 +48,11 @@ use App\Http\Controllers\Admin\{
     LanguageCourseOnlineCourseController,
     LanguageCourseSummerCampController,
     LanguageCourseTrainingCourseController,
+    ExchangeRateController,
+    ConversionFeeController,
+    AgentReferralController,
+    BulkImportExportController,
+    CmsController,
     GalleryController,
     ReviewController,
     FaqController,
@@ -152,6 +157,38 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('language-course-online-courses', LanguageCourseOnlineCourseController::class);
     Route::resource('language-course-summer-camps', LanguageCourseSummerCampController::class);
     Route::resource('language-course-training-courses', LanguageCourseTrainingCourseController::class);
+    Route::resource('exchange-rates', ExchangeRateController::class);
+    Route::resource('conversion-fees', ConversionFeeController::class);
+    Route::post('exchange-rates/refresh/gbp', [ExchangeRateController::class, 'getGbpAllRates'])
+        ->name('exchange-rates.refresh-gbp');
+    Route::prefix('agent-referrals')->group(function () {
+        Route::get('/', [AgentReferralController::class, 'index'])->name('referrals.index');
+        Route::get('/create', [AgentReferralController::class, 'create'])->name('referrals.create');
+        Route::post('/', [AgentReferralController::class, 'store'])->name('referrals.store');
+        Route::get('/students', [AgentReferralController::class, 'students'])->name('referrals.students');
+        Route::get('/{agent}/edit', [AgentReferralController::class, 'edit'])->name('referrals.edit');
+        Route::put('/{agent}', [AgentReferralController::class, 'update'])->name('referrals.update');
+    });
+
+    // Bulk import/export
+    Route::prefix('bulk-import-export')->name('bulk-ie.')->group(function () {
+        Route::get('/', [BulkImportExportController::class, 'index'])->name('index');
+        Route::get('{resource}', [BulkImportExportController::class, 'show'])->name('show');
+        Route::get('{resource}/export-blank', [BulkImportExportController::class, 'exportBlank'])->name('export-blank');
+        Route::get('{resource}/export-all', [BulkImportExportController::class, 'exportAll'])->name('export-all');
+        Route::post('{resource}/import-new', [BulkImportExportController::class, 'importNew'])->name('import-new');
+        Route::post('{resource}/import-update', [BulkImportExportController::class, 'importUpdate'])->name('import-update');
+        Route::post('{resource}/import-new/commit', [BulkImportExportController::class, 'commitImport'])->name('import-new.commit');
+    });
+
+    // CMS
+    Route::get('cms/course-english', [CmsController::class, 'courseEnglish'])->name('cms.course-english');
+    Route::get('cms/university', [CmsController::class, 'university'])->name('cms.university');
+    Route::get('cms/{app}/create', [CmsController::class, 'create'])->name('cms.create');
+    Route::post('cms/{app}', [CmsController::class, 'store'])->name('cms.store');
+    Route::get('cms/{page}/edit', [CmsController::class, 'edit'])->name('cms.edit');
+    Route::put('cms/{page}', [CmsController::class, 'update'])->name('cms.update');
+    Route::delete('cms/{page}', [CmsController::class, 'destroy'])->name('cms.destroy');
 
     // Content modules
     Route::resource('reviews', ReviewController::class);

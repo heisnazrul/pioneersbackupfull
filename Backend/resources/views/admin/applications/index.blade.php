@@ -37,15 +37,18 @@
                                         <select name="status" class="ti-form-select rounded-sm py-2 px-3 text-sm"
                                             onchange="this.form.submit()">
                                             <option value="">All Statuses</option>
-                                            <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>
-                                                Pending</option>
-                                            <option value="submitted" {{ request('status') == 'submitted' ? 'selected' : '' }}>Submitted</option>
-                                            <option value="reviewing" {{ request('status') == 'reviewing' ? 'selected' : '' }}>Reviewing</option>
-                                            <option value="contacted" {{ request('status') == 'contacted' ? 'selected' : '' }}>Contacted</option>
-                                            <option value="accepted" {{ request('status') == 'accepted' ? 'selected' : '' }}>
-                                                Accepted</option>
-                                            <option value="rejected" {{ request('status') == 'rejected' ? 'selected' : '' }}>
-                                                Rejected</option>
+                                        <option value="draft" {{ request('status') == 'draft' ? 'selected' : '' }}>Draft</option>
+                                        <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>
+                                            Pending</option>
+                                        <option value="submitted" {{ request('status') == 'submitted' ? 'selected' : '' }}>Submitted</option>
+                                        <option value="reviewing" {{ request('status') == 'reviewing' ? 'selected' : '' }}>Reviewing</option>
+                                        <option value="contacted" {{ request('status') == 'contacted' ? 'selected' : '' }}>Contacted</option>
+                                        <option value="accepted" {{ request('status') == 'accepted' ? 'selected' : '' }}>
+                                            Accepted</option>
+                                        <option value="rejected" {{ request('status') == 'rejected' ? 'selected' : '' }}>
+                                            Rejected</option>
+                                        <option value="invalid" {{ request('status') == 'invalid' ? 'selected' : '' }}>
+                                            Invalid</option>
                                         </select>
                                     </div>
                                     <div class="relative">

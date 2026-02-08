@@ -37,7 +37,7 @@ return new class extends Migration
             $table->timestamp('last_login_at')->nullable()->index();
 
             $table->string('google_id')->nullable();
-            $table->string('password')->nullable(); // nullable to support social login
+            $table->string('password')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

@@ -19,11 +19,13 @@ class LanguageSchool extends Model
         'logo',
         'accreditation_ids',
         'rating',
+        'is_preferred',
     ];
 
     protected $casts = [
         'accreditation_ids' => 'array',
         'rating' => 'decimal:2',
+        'is_preferred' => 'boolean',
     ];
 
     protected static function booted(): void

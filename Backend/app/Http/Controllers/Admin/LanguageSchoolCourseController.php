@@ -126,15 +126,16 @@ class LanguageSchoolCourseController extends Controller
 
     private function validateData(Request $request, ?LanguageSchoolCourse $languageSchoolCourse = null): array
     {
+        $slugInput = $request->input('slug') ?: $request->input('name');
         $request->merge([
-            'slug' => Str::slug($request->input('slug') ?: $request->input('name', '')),
+            'slug' => $slugInput ? Str::slug($slugInput) : null,
         ]);
 
         return $request->validate([
             'branch_id' => ['required', 'integer', 'exists:language_school_branches,id'],
             'language_course_type_id' => ['required', 'integer', 'exists:language_course_types,id'],
             'language_course_tag_id' => ['nullable', 'integer', 'exists:language_course_tags,id'],
-            'slug' => ['required', 'string', 'max:160', Rule::unique('language_school_courses', 'slug')->ignore($languageSchoolCourse?->id)],
+            'slug' => ['nullable', 'string', 'max:160', Rule::unique('language_school_courses', 'slug')->ignore($languageSchoolCourse?->id)],
             'name' => ['required', 'string', 'max:200'],
             'ar_name' => ['nullable', 'string', 'max:200'],
             'description' => ['nullable', 'string'],

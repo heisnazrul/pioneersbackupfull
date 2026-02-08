@@ -186,6 +186,62 @@
                                         </ul>
                                 </li>
 
+                                <!-- Finance -->
+                                <li class="slide__category"><span class="category-name">Finance</span></li>
+                                <li class="slide has-sub">
+                                        <a href="javascript:void(0);" class="side-menu__item">
+                                                <i class="ri-money-dollar-circle-line side-menu__icon"></i>
+                                                <span class="side-menu__label">Finance</span>
+                                                <i class="ri-arrow-down-s-line side-menu__angle"></i>
+                                        </a>
+                                        <ul class="slide-menu child1">
+                                                <li class="slide"><a href="{{ route('admin.exchange-rates.index') }}"
+                                                                class="side-menu__item">Exchange Rates</a></li>
+                                                <li class="slide"><a href="{{ route('admin.conversion-fees.index') }}"
+                                                                class="side-menu__item">Conversion Fees</a></li>
+                                        </ul>
+                                </li>
+
+                                <!-- Referrals -->
+                                <li class="slide__category"><span class="category-name">Referrals</span></li>
+                                <li class="slide has-sub">
+                                        <a href="javascript:void(0);" class="side-menu__item">
+                                                <i class="ri-group-line side-menu__icon"></i>
+                                                <span class="side-menu__label">Agent Referrals</span>
+                                                <i class="ri-arrow-down-s-line side-menu__angle"></i>
+                                        </a>
+                                        <ul class="slide-menu child1">
+                                                <li class="slide"><a href="{{ route('admin.referrals.index') }}"
+                                                                class="side-menu__item">Agents</a></li>
+                                                <li class="slide"><a href="{{ route('admin.referrals.students') }}"
+                                                                class="side-menu__item">Referred Students</a></li>
+                                        </ul>
+                                </li>
+
+                                <!-- Bulk Import & Export -->
+                                <li class="slide__category"><span class="category-name">Bulk Import & Export</span></li>
+                                <li class="slide">
+                                        <a href="{{ route('admin.bulk-ie.index') }}" class="side-menu__item">
+                                                <i class="ri-database-2-line side-menu__icon"></i>
+                                                <span class="side-menu__label">Bulk Import & Export</span>
+                                        </a>
+                                </li>
+
+                                <!-- CMS -->
+                                <li class="slide__category"><span class="category-name">CMS</span></li>
+                                <li class="slide">
+                                        <a href="{{ route('admin.cms.course-english') }}" class="side-menu__item">
+                                                <i class="ri-pages-line side-menu__icon"></i>
+                                                <span class="side-menu__label">CourseEnglish CMS</span>
+                                        </a>
+                                </li>
+                                <li class="slide">
+                                        <a href="{{ route('admin.cms.university') }}" class="side-menu__item">
+                                                <i class="ri-pages-line side-menu__icon"></i>
+                                                <span class="side-menu__label">University CMS</span>
+                                        </a>
+                                </li>
+
                                 <!-- Start::slide__category -->
                                 <li class="slide__category"><span class="category-name">Language Fees</span></li>
                                 <!-- End::slide__category -->

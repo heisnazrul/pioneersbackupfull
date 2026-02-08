@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Application;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ApplicationController extends Controller
 {
@@ -63,7 +64,7 @@ class ApplicationController extends Controller
         $application = Application::findOrFail($id);
 
         $request->validate([
-            'status' => 'required',
+            'status' => ['required', Rule::in(['draft','pending','submitted','reviewing','contacted','accepted','rejected','invalid'])],
             'assigned_to' => 'nullable|exists:users,id',
             'status_notes' => 'nullable|string'
         ]);
